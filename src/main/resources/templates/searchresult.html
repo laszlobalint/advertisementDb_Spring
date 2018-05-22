@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -13,7 +12,7 @@
 <body>
 
 <br /><br />
-<center><th:block th:include="_menu1"></th:block></center>
+<center><th:block th:include="_menu"></th:block></center>
 <br /><br />
 
 <h2>For Rent</h2>
@@ -39,8 +38,16 @@
         <td th:text="${forrent.canBeMoved}">...</td>
         <td th:text="${forrent.cautionMonths}">...</td>
         <td th:text="${forrent.currentExpenses}">...</td>
-        <td th:text="${forrent.isForStudents}">...</td>
-        <td th:text="${forrent.isSmoking}">...</td>
+        <td th:switch="${forrent.isForStudents}">
+            <p th:case="'0'">No</p>
+            <p th:case="'1'">Yes</p>
+            <p th:case="*">Unknown</p>
+        </td>
+        <td th:switch="${forrent.isSmoking}">
+            <p th:case="'0'">No</p>
+            <p th:case="'1'">Yes</p>
+            <p th:case="*">Unknown</p>
+        </td>
         <td th:text="${forrent.userId}">...</td>
     </tr>
 </table><br />
@@ -64,7 +71,11 @@
         <td th:text="${forsale.county}">...</td>
         <td th:text="${forsale.wasBuilt}">...</td>
         <td th:text="${forsale.price}">...</td>
-        <td th:text="${forsale.isMortgaged}">...</td>
+        <td th:switch="${forsale.isMortgaged}">
+            <p th:case="'0'">No</p>
+            <p th:case="'1'">Yes</p>
+            <p th:case="*">Unknown</p>
+        </td>
         <td th:text="${forsale.canBeMoved}">...</td>
         <td th:text="${forsale.userId}">...</td>
     </tr>
@@ -94,9 +105,21 @@
         <td th:text="${forsearch.canBeMoved}">...</td>
         <td th:text="${forsearch.cautionMonths}">...</td>
         <td th:text="${forsearch.currentInmate}">...</td>
-        <td th:text="${forsearch.isForStudents}">...</td>
-        <td th:text="${forsearch.isSmoking}">...</td>
-        <td th:text="${forsearch.isMan}">...</td>
+        <td th:switch="${forsearch.isForStudents}">
+            <p th:case="'0'">No</p>
+            <p th:case="'1'">Yes</p>
+            <p th:case="*">Unknown</p>
+        </td>
+        <td th:switch="${forsearch.isSmoking}">
+            <p th:case="'0'">No</p>
+            <p th:case="'1'">Yes</p>
+            <p th:case="*">Unknown</p>
+        </td>
+        <td th:switch="${forsearch.isMan}">
+            <p th:case="'0'">Woman</p>
+            <p th:case="'1'">Man</p>
+            <p th:case="*">Unknown</p>
+        </td>
         <td th:text="${forsearch.userId}">...</td>
     </tr>
 </table>

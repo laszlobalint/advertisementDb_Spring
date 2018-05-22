@@ -11,4 +11,7 @@ public interface ForSearchRepository extends CrudRepository<ForSearch, Long> {
 
     @Query("SELECT f FROM ForSearch f WHERE f.userId = :userId")
     List<ForSearch> find(@Param("userId") Long userId);
+
+    @Query("SELECT f FROM ForSearch f WHERE f.id = :id")
+    List<ForSearch> findAd(@Param("id") Long id);
 }

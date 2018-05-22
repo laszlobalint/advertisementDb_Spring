@@ -1,7 +1,5 @@
 package advertisement.model;
 
-import org.springframework.stereotype.Component;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -113,34 +111,6 @@ public class ForRent implements Serializable {
     public void setIsForStudents(Long isForStudents) {
         this.isForStudents = isForStudents;
     }
-
-    /*
-    public String getIsSmoking() {
-        Long one = 1L;
-        if (this.isSmoking.equals(one)) {
-            return "yes";
-        } else {
-            return "no";
-        }
-    }
-
-    public void setIsSmoking(Long isSmoking) {
-        this.isSmoking = isSmoking;
-    }
-
-    public String getIsForStudents() {
-        Long one = 1L;
-        if (this.isForStudents.equals(one)) {
-            return "yes";
-        } else {
-            return "no";
-        }
-    }
-
-    public void setIsForStudents(Long isForStudents) {
-        this.isForStudents = isForStudents;
-    }
-    */
 
     public Date getCanBeMoved() {
         return canBeMoved;

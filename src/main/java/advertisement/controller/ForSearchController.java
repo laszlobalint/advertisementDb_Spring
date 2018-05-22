@@ -31,7 +31,6 @@ public class ForSearchController {
     @Autowired
     ForSearchServiceImpl forSearchService;
 
-    // SHOW ALL SEARCH ADS
     @GetMapping(path = "/")
     public ModelAndView getAllForSearchUserAds() {
         ModelAndView modelAndView = new ModelAndView();
@@ -41,7 +40,6 @@ public class ForSearchController {
         return modelAndView;
     }
 
-    // SHOW ALL USERS SEARCH ADS
     @GetMapping(path = "/{id}/")
     public ModelAndView getForSearchAds(@PathVariable Long id) {
         ModelAndView modelAndView = new ModelAndView();
@@ -51,7 +49,6 @@ public class ForSearchController {
         return modelAndView;
     }
 
-    // GET NEW FOR SEARCH FORM
     @GetMapping("new")
     public ModelAndView forSearchForm(ModelAndView model) {
         model.setViewName("addforsearch");
@@ -60,7 +57,6 @@ public class ForSearchController {
         return model;
     }
 
-    // ADD NEW FOR SEARCH
     @PostMapping("new")
     public ModelAndView forSearchAdd(@Valid ForSearch forSearch, BindingResult bindingResult, ModelAndView model) {
         if(bindingResult.hasErrors()) {
@@ -73,7 +69,6 @@ public class ForSearchController {
         return model;
     }
 
-    // GET EDIT FOR SEARCH FORM
     @GetMapping(path = "/edit/{adsId}")
     public ModelAndView editForSearch(@PathVariable Long adsId) {
         ModelAndView modelAndView = new ModelAndView();
@@ -84,7 +79,6 @@ public class ForSearchController {
         return modelAndView;
     }
 
-    // EDIT FOR SEARCH AD
     @PostMapping(path = "/edit/{adsId}")
     public ModelAndView updateUser(@ModelAttribute ForSearch editforsearch, ModelAndView model, @PathVariable Long adsId) {
         ForSearch editFm = forSearchRepository.findById(adsId).get();
@@ -105,7 +99,6 @@ public class ForSearchController {
         return model;
     }
 
-    // DELETE FOR SEARCH AD
     @GetMapping("/delete/{adsId}")
     public ModelAndView deleteForSeach(@PathVariable Long adsId, ModelAndView model) {
         forSearchRepository.deleteById(adsId);

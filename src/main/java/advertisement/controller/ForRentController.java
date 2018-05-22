@@ -28,7 +28,6 @@ public class ForRentController {
     @Autowired ForRentRepository forRentRepository;
     @Autowired ForRentServiceImpl forRentService;
 
-    // SHOW ALL RENT ADS
     @GetMapping(path = "/")
     public ModelAndView getAllForRentUserAds() {
         ModelAndView modelAndView = new ModelAndView();
@@ -38,7 +37,6 @@ public class ForRentController {
         return modelAndView;
     }
 
-    // SHOW ALL USERS RENT ADS
     @GetMapping(path = "/{id}/")
     public ModelAndView getForRentAds(@PathVariable Long id) {
         ModelAndView modelAndView = new ModelAndView();
@@ -48,7 +46,6 @@ public class ForRentController {
         return modelAndView;
     }
 
-    // GET NEW FOR RENT FORM
     @GetMapping("new")
     public ModelAndView forRentForm(ModelAndView model) {
         model.setViewName("addforrent");
@@ -57,7 +54,6 @@ public class ForRentController {
         return model;
     }
 
-    // ADD NEW FOR RENT
     @PostMapping("new")
     public ModelAndView forRentAdd(@Valid ForRent forRent, BindingResult bindingResult, ModelAndView model) {
         if(bindingResult.hasErrors()) {
@@ -70,7 +66,6 @@ public class ForRentController {
         return model;
     }
 
-    // GET EDIT FOR RENT FORM
     @GetMapping(path = "/edit/{adsId}")
     public ModelAndView editForRent(@PathVariable Long adsId) {
         ModelAndView modelAndView = new ModelAndView();
@@ -81,7 +76,6 @@ public class ForRentController {
         return modelAndView;
     }
 
-    // EDIT FOR RENT AD
     @PostMapping(path = "/edit/{adsId}")
     public ModelAndView updateUser(@ModelAttribute ForRent editforrent, ModelAndView model, @PathVariable Long adsId) {
         ForRent editFr = forRentRepository.findById(adsId).get();
@@ -101,7 +95,6 @@ public class ForRentController {
         return model;
     }
 
-    // DELETE FOR RENT AD
     @GetMapping("/delete/{adsId}")
     public ModelAndView deleteForRent(@PathVariable Long adsId, ModelAndView model) {
         forRentRepository.deleteById(adsId);

@@ -1,34 +1,38 @@
-<div xmlns:th="http://www.thymeleaf.org" style="border: 1px solid #ccc;padding:5px;margin-bottom:20px;">
-    <a href="/main">Home</a>
-    | &nbsp;
-    <a href="/logout">Logout</a>
-    | &nbsp;
-    <tr th:each="activeUser : ${activeUser}"><a th:href="@{'/users/' +  ${activeUser}}">Profile</a></tr>
-    | &nbsp;
-    <a href="/users/ads">Search</a>
-    | &nbsp;
-</div>
-    <div xmlns:th="http://www.thymeleaf.org" class="menu-wrap">
-        <nav class="menu">
-            <ul class="clearfix">
-                <li>
-                    <a href="#">Ads Categories<span class="arrow">&#9660;</span></a>
-                    <ul class="sub-menu">
-                        <li><a href="/users/ads/forrent/">For Rent</a></li>
-                        <li><a href="/users/ads/forsale/">For Sale</a></li>
-                        <li><a href="/users/ads/forsearch/">Flatmate Search</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">My Advertisements<span class="arrow">&#9660;</span></a>
-                    <ul class="sub-menu">
-                        <tr th:each="activeUser : ${activeUser}">
-                        <li><a th:href="@{'/users/ads/forrent/' + ${activeUser} + ${'/'}}">My For Rent</a></li>
-                        <li><a th:href="@{'/users/ads/forsale/' + ${activeUser} + ${'/'}}">My For Sale</a></li>
-                        <li><a th:href="@{'/users/ads/forsearch/' + ${activeUser} + ${'/'}}">My Flatmate Search</a></li>
-                        </tr>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
+<a class="btn btn-secondary" href="/main" role="button">Home</a>
+<a class="btn btn-secondary" href="/logout" role="button">Logout</a>
+<a xmlns:th="http://www.thymeleaf.org" th:object="${activeUser}">
+<a class="btn btn-secondary" th:href="@{'/users/' +  ${activeUser}}" role="button">Profile</a>
+</a>
+<a class="btn btn-secondary" href="/users/" role="button">Users</a>
+<a class="btn btn-secondary" href="/users/search" role="button">Search</a>
+<a class="btn btn-secondary" href="/about" role="button">About</a>
+<div xmlns:th="http://www.thymeleaf.org" class="btn-group">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Create Ads
+    </button>
+    <div class="dropdown-menu">
+        <a class="dropdown-item" href="/users/ads/forrent/new">For Rent</a>
+        <a class="dropdown-item" href="/users/ads/forsale/new">For Sale</a>
+        <a class="dropdown-item" href="/users/ads/forsearch/new">Looking For Flatmates</a>
     </div>
+</div>
+<div xmlns:th="http://www.thymeleaf.org" class="btn-group">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Categories
+    </button>
+    <div class="dropdown-menu">
+        <a class="dropdown-item" href="/users/ads/forrent/">For Rent</a>
+        <a class="dropdown-item" href="/users/ads/forsale/">For Sale</a>
+        <a class="dropdown-item" href="/users/ads/forsearch/">Looking For Flatmates</a>
+    </div>
+</div>
+<div xmlns:th="http://www.thymeleaf.org" th:object="${activeUser}"class="btn-group">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        My Ads
+    </button>
+    <div class="dropdown-menu">
+        <a class="dropdown-item" th:href="@{'/users/ads/forrent/' +  ${activeUser} + @{'/'}}">For Rent</a>
+        <a class="dropdown-item" th:href="@{'/users/ads/forsale/' +  ${activeUser} + @{'/'}}">For Sale</a>
+        <a class="dropdown-item" th:href="@{'/users/ads/forsearch/' +  ${activeUser} + @{'/'}}">Looking For Flatmates</a>
+    </div>
+</div>

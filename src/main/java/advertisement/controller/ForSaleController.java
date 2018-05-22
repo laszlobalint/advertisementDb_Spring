@@ -34,7 +34,6 @@ public class ForSaleController {
     @Autowired
     ForSaleServiceImpl forSaleService;
 
-    // SHOW ALL SALE ADS
     @GetMapping(path = "/")
     public ModelAndView getAllForSaleUserAds() {
         ModelAndView modelAndView = new ModelAndView();
@@ -44,7 +43,6 @@ public class ForSaleController {
         return modelAndView;
     }
 
-    // SHOW ALL USERS SALE ADS
     @GetMapping(path = "/{id}/")
     public ModelAndView getForSaleAds(@PathVariable Long id) {
         ModelAndView modelAndView = new ModelAndView();
@@ -54,7 +52,6 @@ public class ForSaleController {
         return modelAndView;
     }
 
-    // GET NEW FOR SALE FORM
     @GetMapping("new")
     public ModelAndView forSaleForm(ModelAndView model) {
         model.setViewName("addforsale");
@@ -63,7 +60,6 @@ public class ForSaleController {
         return model;
     }
 
-    // ADD NEW FOR SALE
     @PostMapping("new")
     public ModelAndView forSaleAdd(@Valid ForSale forSale, BindingResult bindingResult, ModelAndView model) {
         if(bindingResult.hasErrors()) {
@@ -76,7 +72,6 @@ public class ForSaleController {
         return model;
     }
 
-    // GET EDIT FOR SALE FORM
     @GetMapping(path = "/edit/{adsId}")
     public ModelAndView editForSale(@PathVariable Long adsId) {
         ModelAndView modelAndView = new ModelAndView();
@@ -87,7 +82,6 @@ public class ForSaleController {
         return modelAndView;
     }
 
-    // EDIT FOR SALE AD
     @PostMapping(path = "/edit/{adsId}")
     public ModelAndView updateUser(@ModelAttribute ForSale editforsale, ModelAndView model, @PathVariable Long adsId) {
         ForSale editFs = forSaleRepository.findById(adsId).get();
@@ -105,7 +99,6 @@ public class ForSaleController {
         return model;
     }
 
-    // DELETE FOR SALE AD
     @GetMapping("/delete/{adsId}")
     public ModelAndView deleteForSale(@PathVariable Long adsId, ModelAndView model) {
         forSaleRepository.deleteById(adsId);

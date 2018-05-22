@@ -31,7 +31,6 @@ public class RegisterController {
 	@Autowired
 	private UserDetailsServiceImpl userService;
 
-	// GET NEW USER FORM
 	@GetMapping("adduser")
 	public ModelAndView registerForm(ModelAndView model) {
 		model.setViewName("adduser");
@@ -40,7 +39,6 @@ public class RegisterController {
 		return model;
 	}
 
-	// ADD NEW USER
 	@PostMapping("adduser")
     public ModelAndView registerUser(@Valid UserInfo userInfo, BindingResult bindingResult, ModelAndView model) {
 		if(bindingResult.hasErrors()) {

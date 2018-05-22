@@ -16,7 +16,6 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.validation.Valid;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -44,7 +43,6 @@ public class UserController {
     @Autowired
     private ForSearchRepository forSearchRepository;
 
-    // SHOW ALL USERS
     @GetMapping(path = "/")
     public ModelAndView getAllUsers() {
         ModelAndView modelAndView = new ModelAndView();
@@ -54,7 +52,6 @@ public class UserController {
         return modelAndView;
     }
 
-    // FIND SINGLE USER
     @GetMapping(path = "/{id}")
     public ModelAndView getUser(@PathVariable Long id) {
         id = activeUserId;
@@ -66,7 +63,6 @@ public class UserController {
         return modelAndView;
     }
 
-    // GET NEW USER FORM
     @GetMapping(path = "/edit/{id}")
     public ModelAndView editUserForm(@PathVariable Long id) {
         id = activeUserId;
@@ -78,7 +74,6 @@ public class UserController {
         return modelAndView;
     }
 
-    // EDIT FOR USER
     @PostMapping(path = "/edit/{id}")
     public String updateUser(@ModelAttribute UserInfo user, Model model, @PathVariable Long id) {
         id = activeUserId;
@@ -96,7 +91,6 @@ public class UserController {
         return "allprofile";
     }
 
-    // DELETE USER
     @PostMapping(path = "/{id}")
     public String deleteUser(@PathVariable Long id, Model model) {
         id = activeUserId;
@@ -108,20 +102,23 @@ public class UserController {
 
     @GetMapping(path = "/search")
     public ModelAndView getSearchForm(ModelAndView modelAndView) {
+        SearchById searchById = new SearchById();
+        searchById.setId((long) 0);
         modelAndView.setViewName("search");
         modelAndView.addObject("activeUser", activeUserId);
-        modelAndView.addObject("searchById", new SearchById());
+        modelAndView.addObject("searchById", searchById);
         return modelAndView;
     }
 
-    @PostMapping(path = "/search")
-    public ModelAndView searchAds(@ModelAttribute SearchById searchById) {
+    @PostMapping(path="/search")
+    public ModelAndView searchAds(@ModelAttribute SearchById id) {
+        searchAdsId = id.getId();
         ModelAndView modelAndView = new ModelAndView();
-        System.out.println(searchById.getId());
         modelAndView.setViewName("searchresult");
-        modelAndView.addObject("forrent", forRentRepository.findById(searchById.getId()));
-        modelAndView.addObject("forsale", forSaleRepository.findById(searchById.getId()));
-        modelAndView.addObject("forsearch", forSearchRepository.findById(searchById.getId()));
+        modelAndView.addObject("forrent", forRentRepository.findAd(searchAdsId));
+        modelAndView.addObject("forsale", forSaleRepository.findAd(searchAdsId));
+        modelAndView.addObject("forsearch", forSearchRepository.findAd(searchAdsId));
+        modelAndView.addObject("activeUser", activeUserId);
         return modelAndView;
     }
 }
