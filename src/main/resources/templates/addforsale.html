@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Create New For Sale Ad</title>
+</head>
+<body>
+
+<br /><br />
+<center><th:block th:include="_menu1"></th:block></center>
+<br /><br />
+
+<h1>Create New For Sale Ad</h1>
+<form th:action="@{/users/ads/forsale/new}" th:object="${forSale}" method="post" enctype="utf8">
+    <label>Enter description:</label>
+    <br />
+    <input type="text" th:field="*{text}" th:value="${forSale.text}"> <div class="text text-danger" th:if="${#fields.hasErrors('text')}" th:errors="*{text}"></div>
+    <br />
+    <label>Enter county:</label>
+    <br />
+    <input type="text" th:field="*{county}" th:value="${forSale.county}"> <div class="text text-danger" th:if="${#fields.hasErrors('county')}" th:errors="*{county}"></div>
+    <br />
+    <label>Enter year of building:</label>
+    <br />
+    <input type="number" th:field="*{wasBuilt}" th:value="${forSale.wasBuilt}"> <div class="text text-danger" th:if="${#fields.hasErrors('wasBuilt')}" th:errors="*{wasBuilt}"></div>
+    <br />
+    <label>Enter price ($):</label>
+    <br />
+    <input type="number" th:field="*{price}" th:value="${forSale.price}"> <div class="text text-danger" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></div>
+    <br />
+    <label>Does it come with a mortgage? (if yes, enter "1", else "0"): </label>
+    <br />
+    <input type="number" th:field="*{isMortgaged}" th:value="${forSale.isMortgaged}"> <div class="text text-danger" th:if="${#fields.hasErrors('isMortgaged')}" th:errors="*{isMortgaged}"></div>
+    <br />
+    <label>Earliest date of moving in:</label>
+    <br />
+    <input type="date" th:field="*{canBeMoved}" th:value="${forSale.canBeMoved}"> <div class="text text-danger" th:if="${#fields.hasErrors('canBeMoved')}" th:errors="*{canBeMoved}"></div>
+    <br />
+    <input type="submit" value="Submit" />
+</form>
+</body>
+</html>

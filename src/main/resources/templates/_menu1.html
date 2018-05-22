@@ -1,0 +1,46 @@
+<a class="btn btn-secondary" href="/main" role="button">Home</a>
+
+<a class="btn btn-secondary" href="/logout" role="button">Logout</a>
+
+<a xmlns:th="http://www.thymeleaf.org" th:object="${activeUser}">
+<a class="btn btn-secondary" th:href="@{'/users/' +  ${activeUser}}" role="button">Profile</a>
+</a>
+
+<a class="btn btn-secondary" href="/users/" role="button">Users</a>
+
+<a class="btn btn-secondary" href="/users/search" role="button">Search</a>
+
+<a class="btn btn-secondary" href="/about" role="button">About</a>
+
+<div xmlns:th="http://www.thymeleaf.org" class="btn-group">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Create Ads
+    </button>
+    <div class="dropdown-menu">
+        <a class="dropdown-item" href="/users/ads/forrent/new">For Rent</a>
+        <a class="dropdown-item" href="/users/ads/forsale/new">For Sale</a>
+        <a class="dropdown-item" href="/users/ads/forsearch/new">Looking For Flatmates</a>
+    </div>
+</div>
+
+<div xmlns:th="http://www.thymeleaf.org" class="btn-group">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Categories
+    </button>
+    <div class="dropdown-menu">
+        <a class="dropdown-item" href="/users/ads/forrent/">For Rent</a>
+        <a class="dropdown-item" href="/users/ads/forsale/">For Sale</a>
+        <a class="dropdown-item" href="/users/ads/forsearch/">Looking For Flatmates</a>
+    </div>
+</div>
+
+<div xmlns:th="http://www.thymeleaf.org" th:object="${activeUser}"class="btn-group">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        My Ads
+    </button>
+    <div class="dropdown-menu">
+        <a class="dropdown-item" th:href="@{'/users/ads/forrent/' +  ${activeUser} + @{'/'}}">For Rent</a>
+        <a class="dropdown-item" th:href="@{'/users/ads/forsale/' +  ${activeUser} + @{'/'}}">For Sale</a>
+        <a class="dropdown-item" th:href="@{'/users/ads/forsearch/' +  ${activeUser} + @{'/'}}">Looking For Flatmates</a>
+    </div>
+</div>

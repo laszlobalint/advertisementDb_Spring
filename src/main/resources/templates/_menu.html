@@ -1,0 +1,34 @@
+<div xmlns:th="http://www.thymeleaf.org" style="border: 1px solid #ccc;padding:5px;margin-bottom:20px;">
+    <a href="/main">Home</a>
+    | &nbsp;
+    <a href="/logout">Logout</a>
+    | &nbsp;
+    <tr th:each="activeUser : ${activeUser}"><a th:href="@{'/users/' +  ${activeUser}}">Profile</a></tr>
+    | &nbsp;
+    <a href="/users/ads">Search</a>
+    | &nbsp;
+</div>
+    <div xmlns:th="http://www.thymeleaf.org" class="menu-wrap">
+        <nav class="menu">
+            <ul class="clearfix">
+                <li>
+                    <a href="#">Ads Categories<span class="arrow">&#9660;</span></a>
+                    <ul class="sub-menu">
+                        <li><a href="/users/ads/forrent/">For Rent</a></li>
+                        <li><a href="/users/ads/forsale/">For Sale</a></li>
+                        <li><a href="/users/ads/forsearch/">Flatmate Search</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">My Advertisements<span class="arrow">&#9660;</span></a>
+                    <ul class="sub-menu">
+                        <tr th:each="activeUser : ${activeUser}">
+                        <li><a th:href="@{'/users/ads/forrent/' + ${activeUser} + ${'/'}}">My For Rent</a></li>
+                        <li><a th:href="@{'/users/ads/forsale/' + ${activeUser} + ${'/'}}">My For Sale</a></li>
+                        <li><a th:href="@{'/users/ads/forsearch/' + ${activeUser} + ${'/'}}">My Flatmate Search</a></li>
+                        </tr>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>

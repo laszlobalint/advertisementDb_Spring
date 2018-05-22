@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>All For Rent Ads</title>
+</head>
+<body>
+
+<br /><br />
+<center><th:block th:include="_menu1"></th:block></center>
+<br /><br />
+
+<table border="2">
+    <tr>
+        <th>Ad ID</th>
+        <th>Text</th>
+        <th>County</th>
+        <th>Monthly Rent ($)</th>
+        <th>Can Be Moved</th>
+        <th>Caution (months)</th>
+        <th>Current Expenses($)</th>
+        <th>Available for Students</th>
+        <th>Smoking Allowed</th>
+        <th>Ad Owner ID</th>
+    </tr>
+    <border="1">
+    <tr th:each="forrent : ${forrent}">
+        <td th:inline="text"><a th:href="@{'/users/ads/forrent/' + ${forrent.id}}">[[${forrent.id}]]</a></td>
+        <td th:text="${forrent.text}">...</td>
+        <td th:text="${forrent.county}">...</td>
+        <td th:text="${forrent.monthlyRent}">...</td>
+        <td th:text="${forrent.canBeMoved}">...</td>
+        <td th:text="${forrent.cautionMonths}">...</td>
+        <td th:text="${forrent.currentExpenses}">...</td>
+        <td th:switch="${forrent.isForStudents}">
+            <p th:case="'0'">No</p>
+            <p th:case="'1'">Yes</p>
+            <p th:case="*">Unknown</p>
+        </td>
+        <td th:switch="${forrent.isSmoking}">
+            <p th:case="'0'">No</p>
+            <p th:case="'1'">Yes</p>
+            <p th:case="*">Unknown</p>
+        </td>
+        <td th:text="${forrent.userId}">...</td>
+    </tr>
+</table>
+</body>
+</html>

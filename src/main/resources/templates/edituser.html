@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Edit User Profile</title>
+</head>
+<body>
+
+<br /><br />
+<center><th:block th:include="_menu1"></th:block></center>
+<br /><br />
+
+<h1>Edit User Profile</h1>
+<form action="#" th:action="@{'/users/edit/' + ${edituser.id}}" th:object="${edituser}" method="post">
+    <label>Enter new name:</label>
+    <br />
+    <input type="text" th:field="*{name}" placeholder="${edituser.name}">
+    <br />
+    <label>Enter new username:</label>
+    <br />
+    <input type="text" th:field="*{username}" placeholder="${edituser.username}">
+    <br />
+    <label>Enter new password:</label>
+    <br />
+    <input type="password" th:field="*{password}" placeholder="Enter new password">
+    <br />
+    <label>Enter new date of birth:</label>
+    <br />
+    <input type="date" th:field="*{dateOfBirth}" placeholder="${edituser.dateOfBirth}">
+    <br />
+    <label>Enter new phone number:</label>
+    <br />
+    <input type="text" th:field="*{phone}" placeholder="${edituser.phone}">
+    <br />
+    <label>Enter new e-mail address:</label>
+    <br />
+    <input type="email" th:field="*{email}" placeholder="${edituser.email}">
+    <br />
+    <input type="submit" value="Submit" />
+</form>
+</body>
+</html>

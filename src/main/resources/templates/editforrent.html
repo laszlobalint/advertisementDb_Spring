@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Edit For Rent Ad</title>
+</head>
+
+<br /><br />
+<center><th:block th:include="_menu1"></th:block></center>
+<br /><br />
+
+<h1>Edit Your For Rent Ad</h1>
+<form th:action="@{'/users/ads/forrent/edit/' + ${editforrent.id}}" th:object="${editforrent}" method="post" enctype="utf8">
+    <label>Enter new description:</label>
+    <br />
+    <input type="text" th:field="*{text}" placeholder="${forRent.text}">
+    <br />
+    <label>Enter new county:</label>
+    <br />
+    <input type="text" th:field="*{county}" placeholder="${forRent.county}">
+    <br />
+    <label>Enter new months of cautions:</label>
+    <br />
+    <input type="number" th:field="*{cautionMonths}" placeholder="${forRent.cautionMonths}">
+    <br />
+    <label>Enter new monthly rent ($):</label>
+    <br />
+    <input type="number" th:field="*{monthlyRent}" placeholder="${orRent.monthlyRent}">
+    <br />
+    <label>Enter new current expenses ($)</label>
+    <br />
+    <input type="number" th:field="*{currentExpenses}" placeholder="${forRent.currentExpenses}">
+    <br />
+    <label>Smoking allowed (if yes, enter "1", else "0"):</label>
+    <br />
+    <input type="number" th:field="*{isSmoking}" placeholder="${forRent.isSmoking}">
+    <br />
+    <label>Available for students (if yes, enter "1", else "0"):</label>
+    <br />
+    <input type="number" th:field="*{isForStudents}" placeholder="${forRent.isForStudents}">
+    <br />
+    <label>Earliest new date of moving in:</label>
+    <br />
+    <input type="date" th:field="*{canBeMoved}" placeholder="${forRent.canBeMoved}">
+    <br />
+    <input type="submit" value="Submit" />
+</form>
+</body>
+</html>

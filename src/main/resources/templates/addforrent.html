@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Create New For Rent Ad</title>
+</head>
+<body>
+
+<br /><br />
+<center><th:block th:include="_menu1"></th:block></center>
+<br /><br />
+
+<h1>Create New For Rent Ad</h1>
+<form th:action="@{/users/ads/forrent/new}" th:object="${forRent}" method="post" enctype="utf8">
+    <label>Enter description:</label>
+    <br />
+    <input type="text" th:field="*{text}" th:value="${forRent.text}"> <div class="text text-danger" th:if="${#fields.hasErrors('text')}" th:errors="*{text}"></div>
+    <br />
+    <label>Enter county:</label>
+    <br />
+    <input type="text" th:field="*{county}" th:value="${forRent.county}"> <div class="text text-danger" th:if="${#fields.hasErrors('county')}" th:errors="*{county}"></div>
+    <br />
+    <label>Enter months of cautions:</label>
+    <br />
+    <input type="number" th:field="*{cautionMonths}" th:value="${forRent.cautionMonths}"> <div class="text text-danger" th:if="${#fields.hasErrors('cautionMonths')}" th:errors="*{cautionMonths}"></div>
+    <br />
+    <label>Enter monthly rent ($):</label>
+    <br />
+    <input type="number" th:field="*{monthlyRent}" th:value="${forRent.monthlyRent}"> <div class="text text-danger" th:if="${#fields.hasErrors('monthlyRent')}" th:errors="*{monthlyRent}"></div>
+    <br />
+    <label>Enter current expenses ($)</label>
+    <br />
+    <input type="number" th:field="*{currentExpenses}" th:value="${forRent.currentExpenses}"> <div class="text text-danger" th:if="${#fields.hasErrors('currentExpenses')}" th:errors="*{currentExpenses}"></div>
+    <br />
+    <label>Smoking allowed (if yes, enter "1", else "0"):</label>
+    <br />
+    <input type="number" th:field="*{isSmoking}" th:value="${forRent.isSmoking}"> <div class="text text-danger" th:if="${#fields.hasErrors('isSmoking')}" th:errors="*{isSmoking}"></div>
+    <br />
+    <label>Available for students (if yes, enter "1", else "0"):</label>
+    <br />
+    <input type="number" th:field="*{isForStudents}" th:value="${forRent.isForStudents}"> <div class="text text-danger" th:if="${#fields.hasErrors('isForStudents')}" th:errors="*{isForStudents}"></div>
+    <br />
+    <label>Earliest date of moving in:</label>
+    <br />
+    <input type="date" th:field="*{canBeMoved}" th:value="${forRent.canBeMoved}"> <div class="text text-danger" th:if="${#fields.hasErrors('canBeMoved')}" th:errors="*{canBeMoved}"></div>
+    <br />
+    <input type="submit" value="Submit" />
+</form>
+</body>
+</html>

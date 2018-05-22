@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Search For Advertisement</title>
+</head>
+<body>
+
+<br /><br />
+<center><th:block th:include="_menu1"></th:block></center>
+<br /><br />
+
+<form th:action="@{/users/ads/search}" th:object="${searchById}" method="post" enctype="utf8">
+    <label>Find an advertisement:</label>
+    <br />
+    <input type="number" th:field="*{id}" th:value="${searchById.id}">
+    <br />
+    <input type="submit" value="Submit" />
+
+    <!--
+    <div class="form-group">
+        <label for="exampleInputEmail1">Find an advertisement</label><br/>
+        <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter an ad ID"><br/>
+        <small id="emailHelp" class="form-text text-muted">We'll search for advertisements by a given ID.</small>
+    </div>
+    <button type="submit" formmethod="post" th:formaction="@{'/users/search/' + ${id}" th:object="${forRent}" class="btn btn-secondary">Search</button>
+    -->
+</form>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Create New User</title>
+</head>
+<body>
+
+<br /><br />
+<center><th:block th:include="_menu1"></th:block></center>
+<br /><br />
+
+<h1>Create New User</h1>
+<form th:action="@{/adduser}" th:object="${userInfo}" method="post" enctype="utf8">
+    <label>Enter name:</label>
+    <br />
+    <input type="text" th:field="*{name}" th:value="${userInfo.name}"> <div class="text text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+    <br />
+    <label>Enter username:</label>
+    <br />
+    <input type="text" th:field="*{username}" th:value="${userInfo.username}"> <div class="text text-danger" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
+    <br />
+    <label>Enter password:</label>
+    <br />
+    <input type="password" th:field="*{password}" th:value="${userInfo.password}"> <div class="text text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+    <br />
+    <label>Enter date of birth:</label>
+    <br />
+    <input type="date" th:field="*{dateOfBirth}" th.value="${userInfo.dateOfBirth}"> <div class="text text-danger" th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}"></div>
+    <br />
+    <label>Enter phone number:</label>
+    <br />
+    <input type="text" th:field="*{phone}" th.value="${userInfo.phone}"> <div class="text text-danger" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></div>
+    <br />
+    <label>Enter e-mail address:</label>
+    <br />
+    <input type="email" th:field="*{email}" th.value="${userInfo.email}"> <div class="text text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+    <br />
+    <input type="submit" value="Submit" />
+</form>
+</body>
+</html>
