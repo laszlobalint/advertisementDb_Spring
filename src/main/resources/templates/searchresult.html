@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Result Of Search</title>
 </head>
 <body>
@@ -14,9 +16,10 @@
 <br /><br />
 <center><th:block th:include="_menu"></th:block></center>
 <br /><br />
-
+<center>
 <h2>For Rent</h2>
-<table border="2">
+<table class="pure-table">
+    <thead>
     <tr>
         <th>Ad ID</th>
         <th>Text</th>
@@ -29,8 +32,10 @@
         <th>Smoking Allowed</th>
         <th>Ad Owner ID</th>
     </tr>
-    <border="1">
-    <tr th:each="forrent : ${forrent}">
+    </thead>
+
+    <tbody>
+    <tr class="pure-table-odd" th:each="forrent : ${forrent}">
         <td th:inline="text"><a th:href="@{'/users/ads/forrent/' + ${forrent.id}}">[[${forrent.id}]]</a></td>
         <td th:text="${forrent.text}">...</td>
         <td th:text="${forrent.county}">...</td>
@@ -50,10 +55,12 @@
         </td>
         <td th:text="${forrent.userId}">...</td>
     </tr>
+    </tbody>
 </table><br />
 
 <h2>For Sale</h2>
-<table border="2">
+<table class="pure-table">
+    <thead>
     <tr>
         <th>Ad ID</th>
         <th>Text</th>
@@ -64,8 +71,10 @@
         <th>Can Be Moved</th>
         <th>Ad Owner ID</th>
     </tr>
-    <border="1">
-    <tr th:each="forsale : ${forsale}">
+    </thead>
+
+    <tbody>
+    <tr class="pure-table-odd" th:each="forsale : ${forsale}">
         <td th:inline="text"><a th:href="@{'/users/ads/forsale/' + ${forsale.id}}">[[${forsale.id}]]</a></td>
         <td th:text="${forsale.text}">...</td>
         <td th:text="${forsale.county}">...</td>
@@ -79,10 +88,12 @@
         <td th:text="${forsale.canBeMoved}">...</td>
         <td th:text="${forsale.userId}">...</td>
     </tr>
+    </tbody>
 </table><br />
 
 <h2>Looking For Flatmates</h2>
-<table border="2">
+<table class="pure-table">
+    <thead>
     <tr>
         <th>Ad ID</th>
         <th>Text</th>
@@ -96,8 +107,10 @@
         <th>Looking for</th>
         <th>Ad Owner ID</th>
     </tr>
-    <border="1">
-    <tr th:each="forsearch : ${forsearch}">
+    </thead>
+
+    <tbody>
+    <tr class="pure-table-odd" th:each="forsearch : ${forsearch}">
         <td th:inline="text"><a th:href="@{'/users/ads/forsearch/' + ${forsearch.id}}">[[${forsearch.id}]]</a></td>
         <td th:text="${forsearch.text}">...</td>
         <td th:text="${forsearch.county}">...</td>
@@ -122,7 +135,8 @@
         </td>
         <td th:text="${forsearch.userId}">...</td>
     </tr>
+    </tbody>
 </table>
-
+</center>
 </body>
 </html>
