@@ -1,5 +1,5 @@
 ![sprin1](https://user-images.githubusercontent.com/36161578/40393051-3b89a552-5e1e-11e8-9888-3a97cead325a.png)
-![sprin2](https://user-images.githubusercontent.com/36161578/40393058-47897b70-5e1e-11e8-9a08-0cbdde9afb95.png)
+![spring2](https://user-images.githubusercontent.com/36161578/40423195-06f5b3e8-5e92-11e8-9351-a51fca60b4d9.png)
 
 Description of the program:
 The program implements an advertisement management program. It requires registration. Unregistered users can only access the registration or login menu. Placing or reading ads is possible only after registration. When registering you need to enter your name, username, password, date of birth, phone number and email address. The datas are stored in MySQL database. The users can change their data later. Registered users can either post or browse an ad. Advertisements include three categories, such as flats for sale, flats for rent, or looking for a flat mate. Different ad types apply different advertisements.
