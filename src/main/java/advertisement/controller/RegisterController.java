@@ -1,6 +1,6 @@
 package advertisement.controller;
 
-import advertisement.config.service.UserDetailsServiceImpl;
+import advertisement.config.implementation.UserDetailsServiceImpl;
 import advertisement.model.UserInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -17,7 +17,7 @@ import javax.validation.Valid;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import static advertisement.config.service.UserDetailsServiceImpl.activeUserId;
+import static advertisement.config.implementation.UserDetailsServiceImpl.activeUserId;
 
 @Controller
 @RequestMapping("/")

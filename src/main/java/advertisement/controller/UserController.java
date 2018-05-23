@@ -1,6 +1,6 @@
 package advertisement.controller;
 
-import advertisement.config.service.UserDetailsServiceImpl;
+import advertisement.config.implementation.UserDetailsServiceImpl;
 import advertisement.dao.ForRentRepository;
 import advertisement.dao.ForSaleRepository;
 import advertisement.dao.ForSearchRepository;
@@ -19,7 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import static advertisement.config.service.UserDetailsServiceImpl.activeUserId;
+import static advertisement.config.implementation.UserDetailsServiceImpl.activeUserId;
 
 @Controller
 @RequestMapping(path="/users")

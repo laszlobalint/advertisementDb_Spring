@@ -1,14 +1,14 @@
-package advertisement.config.service;
+package advertisement.config.implementation;
 
 
+import advertisement.config.search.SearchDTO;
+import advertisement.config.service.ForSaleService;
 import advertisement.dao.ForSaleRepository;
 import advertisement.model.ForSale;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-
-import static advertisement.config.service.UserDetailsServiceImpl.activeUserId;
 
 @Component
 public class ForSaleServiceImpl implements ForSaleService {
@@ -18,7 +18,7 @@ public class ForSaleServiceImpl implements ForSaleService {
 
     public void createForSale(ForSale forSale) {
         ForSale newForSale = new ForSale();
-        newForSale.setUserId(activeUserId);
+        newForSale.setUserId(UserDetailsServiceImpl.activeUserId);
         newForSale.setText(forSale.getText());
         newForSale.setCounty(forSale.getCounty());
         newForSale.setWasBuilt(forSale.getWasBuilt());

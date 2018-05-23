@@ -1,4 +1,4 @@
-package advertisement.config.service;
+package advertisement.config.search;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 

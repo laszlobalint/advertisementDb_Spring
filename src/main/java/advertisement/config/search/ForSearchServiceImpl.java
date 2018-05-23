@@ -1,13 +1,13 @@
-package advertisement.config.service;
+package advertisement.config.search;
 
+import advertisement.config.implementation.UserDetailsServiceImpl;
+import advertisement.config.service.ForSearchService;
 import advertisement.dao.ForSearchRepository;
 import advertisement.model.ForSearch;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-
-import static advertisement.config.service.UserDetailsServiceImpl.activeUserId;
 
 @Component
 public class ForSearchServiceImpl implements ForSearchService {
@@ -17,7 +17,7 @@ public class ForSearchServiceImpl implements ForSearchService {
 
     public void createForSeach(ForSearch forSearch) {
         ForSearch newForSearch = new ForSearch();
-        newForSearch.setUserId(activeUserId);
+        newForSearch.setUserId(UserDetailsServiceImpl.activeUserId);
         newForSearch.setText(forSearch.getText());
         newForSearch.setCounty(forSearch.getCounty());
         newForSearch.setCautionMonths(forSearch.getCautionMonths());

@@ -1,4 +1,4 @@
-package advertisement.config.service;
+package advertisement.config.search;
 
 public enum SearchType {
     QUERY_ANNOTATION;

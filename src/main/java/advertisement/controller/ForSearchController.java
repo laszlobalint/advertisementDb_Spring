@@ -1,6 +1,6 @@
 package advertisement.controller;
 
-import advertisement.config.service.ForSearchServiceImpl;
+import advertisement.config.search.ForSearchServiceImpl;
 import advertisement.dao.ForSearchRepository;
 import advertisement.model.ForSearch;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ import javax.validation.Valid;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import static advertisement.config.service.UserDetailsServiceImpl.activeUserId;
+import static advertisement.config.implementation.UserDetailsServiceImpl.activeUserId;
 
 @Controller
 @RequestMapping("/users/ads/forsearch")

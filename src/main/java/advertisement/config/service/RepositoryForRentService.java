@@ -1,5 +1,7 @@
 package advertisement.config.service;
 
+import advertisement.config.search.SearchDTO;
+import advertisement.config.search.SearchType;
 import advertisement.dao.ForRentRepository;
 import advertisement.model.ForRent;
 import javax.annotation.Resource;

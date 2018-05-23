@@ -1,5 +1,7 @@
 package advertisement.config.service;
 
+import advertisement.config.search.SearchDTO;
+import advertisement.config.search.SearchType;
 import advertisement.dao.ForSearchRepository;
 import advertisement.model.ForSearch;
 import org.springframework.transaction.annotation.Transactional;

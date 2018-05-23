@@ -1,4 +1,4 @@
-package advertisement.config.service;
+package advertisement.config.implementation;
 
 import advertisement.dao.UserInfoDAO;
 import advertisement.dao.UserRepository;

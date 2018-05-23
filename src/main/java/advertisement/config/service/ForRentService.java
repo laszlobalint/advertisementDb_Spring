@@ -1,5 +1,6 @@
 package advertisement.config.service;
 
+import advertisement.config.search.SearchDTO;
 import advertisement.model.ForRent;
 
 import java.util.List;

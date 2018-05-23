@@ -1,6 +1,6 @@
 package advertisement.controller;
 
-import advertisement.config.service.ForSaleServiceImpl;
+import advertisement.config.implementation.ForSaleServiceImpl;
 import advertisement.dao.ForSaleRepository;
 import advertisement.model.ForSale;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +15,7 @@ import javax.validation.Valid;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import static advertisement.config.service.UserDetailsServiceImpl.activeUserId;
-
-
-import static advertisement.config.service.UserDetailsServiceImpl.activeUserId;
+import static advertisement.config.implementation.UserDetailsServiceImpl.activeUserId;
 
 @Controller
 @RequestMapping("/users/ads/forsale")
