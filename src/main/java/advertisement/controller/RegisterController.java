@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import java.util.UUID;
 
 import javax.validation.Valid;
 import java.text.SimpleDateFormat;
@@ -36,6 +37,7 @@ public class RegisterController {
 		model.setViewName("adduser");
 		model.addObject("activeUser", activeUserId);
 		model.addObject("userInfo", new UserInfo());
+
 		return model;
 	}
 

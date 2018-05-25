@@ -14,10 +14,14 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
     public static Long activeUserId;
+    public static Map<Long, UserDetails> users = new HashMap<>();
 
     @Autowired
     private UserInfoDAO userInfoDAO;
@@ -30,9 +34,11 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
         UserInfo userInfo = userInfoDAO.getActiveUser(userName);
         GrantedAuthority authority = new SimpleGrantedAuthority(userInfo.getRole());
+        final String token = UUID.randomUUID().toString();
         User user = new User(userInfo.getUsername(),userInfo.getPassword(),Arrays.asList(authority));
         activeUserId = userInfo.getId();
         UserDetails userDetails = (UserDetails)user;
+        users.put(userInfo.getId(), (UserDetails) user);
         return userDetails;
     }
 

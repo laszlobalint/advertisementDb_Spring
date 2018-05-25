@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import static advertisement.config.implementation.UserDetailsServiceImpl.activeUserId;
+import static advertisement.config.implementation.UserDetailsServiceImpl.users;
 
 @Controller
 @RequestMapping("/")
