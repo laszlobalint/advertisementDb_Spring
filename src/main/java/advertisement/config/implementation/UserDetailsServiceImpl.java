@@ -4,6 +4,10 @@ import advertisement.dao.UserInfoDAO;
 import advertisement.dao.UserRepository;
 import advertisement.model.UserInfo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -12,14 +16,13 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import javax.xml.ws.Response;
+import java.util.*;
 
 @Service
-public class UserDetailsServiceImpl implements UserDetailsService {
+    public class UserDetailsServiceImpl implements UserDetailsService {
     public static Long activeUserId;
     public static Map<Long, UserDetails> users = new HashMap<>();
 
@@ -39,6 +42,13 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         activeUserId = userInfo.getId();
         UserDetails userDetails = (UserDetails)user;
         users.put(userInfo.getId(), (UserDetails) user);
+        /*
+        RestTemplate estTemplate = new RestTemplate();
+        HttpHeaders headers = new HttpHeaders();
+        headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
+        HttpEntity<String> entity = new HttpEntity<>("parameters", headers);
+        restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
+        */
         return userDetails;
     }
 
